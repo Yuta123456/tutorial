@@ -21,20 +21,18 @@
 import {
   CBox
 } from '@chakra-ui/vue'
-
 export default {
   name: 'IndexPage',
   components: {
     CBox
   },
   data () {
-    const todoList = [
-      { id: 1, name: 'study', done: false },
-      { id: 2, name: 'sleep', done: false },
-      { id: 3, name: 'breakfast', done: false }
-    ]
     return {
-      todoList
+      todoList: [
+        { id: 1, name: 'study', done: false },
+        { id: 2, name: 'sleep', done: false },
+        { id: 3, name: 'breakfast', done: false }
+      ]
     }
   },
   computed: {
