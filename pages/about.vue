@@ -1,19 +1,19 @@
 <template>
-<div>
+  <div>
     <NuxtLink to="/">
-        <CButton>
-            toIndex
-        </CButton>
+      <CButton>
+        toIndex
+      </CButton>
     </NuxtLink>
-</div>
+  </div>
 </template>
 <script lang="js">
 import { CButton } from '@chakra-ui/vue'
 export default {
   name: 'AboutPage',
   components: {
-    CButton,
-  },
+    CButton
+  }
 //   methods: {
 //     ()
 //   }

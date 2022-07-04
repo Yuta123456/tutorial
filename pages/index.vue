@@ -8,9 +8,9 @@
       justify-content="center"
     >
       <ol>
-        <li v-for="todo in todoList">
-          <input type="checkbox" v-bind:value="todo.done">
-          <span>{{todo.name}}</span>
+        <li v-for="todo in todoList" :key="todo.id">
+          <input type="checkbox" :value="todo.done">
+          <span>{{ todo.name }}</span>
         </li>
       </ol>
     </CBox>
@@ -25,21 +25,21 @@ import {
 export default {
   name: 'IndexPage',
   components: {
-    CBox,
+    CBox
   },
   data () {
-    const todoList: todoItem[] = [
-      {id: 1, name: "study", done: false}, 
-      {id: 2, name: "sleep", done: false}, 
-      {id: 3, name: "breakfast", done: false}, 
-    ];
+    const todoList = [
+      { id: 1, name: 'study', done: false },
+      { id: 2, name: 'sleep', done: false },
+      { id: 3, name: 'breakfast', done: false }
+    ]
     return {
-      todoList,
+      todoList
     }
   },
   computed: {
   },
   methods: {
-  },
+  }
 }
 </script>
