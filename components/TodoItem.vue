@@ -1,22 +1,27 @@
 <template>
-  <CBox>
-    HEY
-  </CBox>
+  <div>
+    <input type="checkbox" :value="todo.done">
+    {{ todo.name }}
+  </div>
 </template>
 
-<script>
+<script lang="ts">
+import { PropType } from 'vue'
 import { ITodoItem } from '../types/index'
-export default {
-  name: 'IndexPage',
+const TodoItem = {
+  name: 'TodoItem',
   components: {
-    CBox
   },
   props: {
-    todo: ITodoItem
+    todo: {
+      type: Object as PropType<ITodoItem>
+    }
   },
   computed: {
   },
   methods: {
-  }
+  },
+  
 }
+export default TodoItem
 </script>

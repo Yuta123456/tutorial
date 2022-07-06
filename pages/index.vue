@@ -7,12 +7,10 @@
       flex-dir="column"
       justify-content="center"
     >
-      <ol>
-        <li v-for="todo in todoList" :key="todo.id">
-          <input type="checkbox" :value="todo.done">
-          <span>{{ todo.name }}</span>
-        </li>
-      </ol>
+      <TodoItem 
+      v-for="todo in todoList" 
+      :key="todo.id" 
+      v-bind:todo="todo" />
     </CBox>
   </div>
 </template>
@@ -21,10 +19,13 @@
 import {
   CBox
 } from '@chakra-ui/vue'
+import { ITodoItem } from '~/types'
+import TodoItem from '../components/TodoItem.vue'
 export default {
   name: 'IndexPage',
   components: {
-    CBox
+    CBox,
+    TodoItem
   },
   data () {
     return {
@@ -32,7 +33,7 @@ export default {
         { id: 1, name: 'study', done: false },
         { id: 2, name: 'sleep', done: false },
         { id: 3, name: 'breakfast', done: false }
-      ]
+      ]as ITodoItem[]
     }
   },
   computed: {
