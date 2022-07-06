@@ -24,8 +24,9 @@ import {
   CList
 } from '@chakra-ui/vue'
 import { ITodoItem } from '~/types'
+import { defineComponent } from 'vue'
 import TodoItem from '../components/TodoItem.vue'
-export default {
+export default defineComponent({
   name: 'IndexPage',
   components: {
     CBox,
@@ -49,5 +50,5 @@ export default {
       this.todoList.filter((todo: ITodoItem) => todo.id === doneInfo.id)[0].done = doneInfo.done; 
     }
   }
-}
+})
 </script>
