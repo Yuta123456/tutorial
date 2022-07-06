@@ -2,15 +2,15 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
     ecmaFeatures: {
-      legacyDecorators: true
-    }
+      legacyDecorators: true,
+    },
   },
-  extends: ['@nuxtjs/eslint-config-typescript'],
+  extends: ['@nuxtjs/eslint-config-typescript', 'vue', 'plugin:vue/base'],
   plugins: ['vue'],
   // add your custom rules here
   rules: {
@@ -21,8 +21,8 @@ module.exports = {
         objects: 'never',
         imports: 'never',
         exports: 'never',
-        functions: 'never'
-      }
+        functions: 'never',
+      },
     ],
     semi: [2, 'never'],
     'no-console': 'off',
@@ -31,9 +31,9 @@ module.exports = {
       'error',
       {
         html: {
-          void: 'never'
-        }
-      }
-    ]
-  }
+          void: 'never',
+        },
+      },
+    ],
+  },
 }
