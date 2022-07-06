@@ -1,16 +1,38 @@
 <template>
-  <div>
-    <input type="checkbox" :value="todo.done">
+  <CListItem ariaLabel="a">
+    <CIconButton  icon="check-circle"
+                  color='green.500'
+                  size="lg"
+                  ariaLabel="a"
+                  @click="onClick"
+                  v-if="todo.done"
+    />
+    <CIconButton  icon="close"
+                  color='green.500'
+                  size="lg"
+                  ariaLabel="a"
+                  @click="onClick"
+                  v-else
+    />
+    <!-- <input type="checkbox" :value="todo.done"> -->
     {{ todo.name }}
-  </div>
+  </CListItem>
 </template>
 
 <script lang="ts">
 import { PropType } from 'vue'
 import { ITodoItem } from '../types/index'
+import {
+  CListItem,
+  CIconButton,
+  CIcon
+} from '@chakra-ui/vue'
 const TodoItem = {
   name: 'TodoItem',
   components: {
+    CListItem, 
+    CIconButton,
+    CIcon
   },
   props: {
     todo: {
@@ -18,8 +40,24 @@ const TodoItem = {
     }
   },
   computed: {
+    done: {
+      get(): boolean {
+        return this.todo.done;
+      },
+      set(d: boolean) { 
+        console.log("set fire with ", d);
+        this.$emit("changeTodo", {
+          id: this.todo.id,
+          done: d,
+        });
+      }
+    }
   },
   methods: {
+    onClick: function () {
+      this.done = !this.todo.done;
+      console.log(this.done);
+    }
   },
   
 }

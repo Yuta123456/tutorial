@@ -7,17 +7,21 @@
       flex-dir="column"
       justify-content="center"
     >
-      <TodoItem 
-      v-for="todo in todoList" 
-      :key="todo.id" 
-      v-bind:todo="todo" />
+      <CList as="ol">
+        <TodoItem
+          v-for="todo in todoList" 
+          :key="todo.id"
+          v-bind:todo="todo"
+          @changeTodo="changeTodo" />
+      </CList>
     </CBox>
   </div>
 </template>
 
 <script lang="ts">
 import {
-  CBox
+  CBox,
+  CList
 } from '@chakra-ui/vue'
 import { ITodoItem } from '~/types'
 import TodoItem from '../components/TodoItem.vue'
@@ -25,6 +29,7 @@ export default {
   name: 'IndexPage',
   components: {
     CBox,
+    CList,
     TodoItem
   },
   data () {
@@ -39,6 +44,10 @@ export default {
   computed: {
   },
   methods: {
+    changeTodo(doneInfo: any) {
+      console.log("changeTodo fire with ", doneInfo);
+      this.todoList.filter((todo: ITodoItem) => todo.id === doneInfo.id)[0].done = doneInfo.done; 
+    }
   }
 }
 </script>
