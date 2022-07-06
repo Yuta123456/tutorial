@@ -6,11 +6,13 @@ module.exports = {
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
-    ecmaFeatures: {
-      legacyDecorators: true,
-    },
   },
-  extends: ['@nuxtjs/eslint-config-typescript', 'vue', 'plugin:vue/base'],
+  extends: [
+    '@nuxtjs/eslint-config-typescript',
+    'vue',
+    'plugin:vue/base',
+    '@nuxtjs',
+  ],
   plugins: ['vue'],
   // add your custom rules here
   rules: {
